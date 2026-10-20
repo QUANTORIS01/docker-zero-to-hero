@@ -444,9 +444,9 @@ my-project/
 └── data/
 ```
 
-می‌خواهیم پوشه `data` را به مسیر `/app/data` داخل Container متصل کنیم.
+می‌خواهیم پوشه `data` را به مسیر <span dir='ltr'>`/app/data`</span> داخل Container متصل کنیم.
 
-با استفاده از <spqan dir='ltr'>`--mount`</span>:
+با استفاده از <span dir='ltr'>`--mount`</span>:
 
 ```bash
 docker run -d \
