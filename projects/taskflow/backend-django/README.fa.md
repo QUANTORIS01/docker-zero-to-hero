@@ -327,7 +327,7 @@ docker compose down -v
 
 <div align='right' dir='rtl'>
 
-<span dir='rtl'>• [**درس ۰۹ — داکری‌کردن یک پروژه واقعی جنگو**](../../../fa/09-django-docker/README.md)</span>
+<span dir='rtl'>• [**درس ۰۹ — داکری‌کردن یک پروژه واقعی جنگو**](/fa/09-django-docker/README.md)</span>
 
 </div>
 

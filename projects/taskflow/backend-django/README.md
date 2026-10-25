@@ -255,7 +255,7 @@ Before deploying to production:
 
 This project is the reference implementation for:
 
-- [**Lesson 09 — Dockerizing a Real Django Application**](../../../en/09-django-docker/README.md)
+- [**Lesson 09 — Dockerizing a Real Django Application**](/en/09-django-docker/README.md)
 
 See the lesson for a full step-by-step walkthrough of every file in this project.
 
