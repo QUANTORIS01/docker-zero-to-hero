@@ -75,7 +75,7 @@ TaskFlow یک API مدیریت تسک است که با Django و Django REST Fra
 
 ```bash
 git clone <https://github.com/QUANTORIS01/docker-zero-to-hero.git>
-cd docker-zero-to-hero/projects/taskflow/backend-django
+cd docker-zero-to-hero/projects/09-taskflow/backend-django
 ```
 
 ### ۲. ساخت فایل محیطی

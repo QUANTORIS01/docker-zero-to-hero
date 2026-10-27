@@ -151,7 +151,7 @@ Every 30 seconds, this chain of events happens:
 The project structure:
 
 ```text
-url-monitor/
+10-url-monitor/
 ├── .dockerignore
 ├── .env
 ├── .env.example

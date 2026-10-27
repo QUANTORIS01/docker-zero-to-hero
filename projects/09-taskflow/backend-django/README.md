@@ -53,7 +53,7 @@ The project demonstrates a complete, production-grade Docker setup for a Django 
 
 ```bash
 git clone <https://github.com/QUANTORIS01/docker-zero-to-hero.git>
-cd docker-zero-to-hero/projects/taskflow/backend-django
+cd docker-zero-to-hero/projects/09-taskflow/backend-django
 ```
 
 ### 2. Create your environment file

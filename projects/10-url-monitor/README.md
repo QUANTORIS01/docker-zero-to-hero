@@ -95,7 +95,7 @@ The **Django web server** is not involved in this chain at all. That's the whole
 
 ```bash
 git clone https://github.com/QUANTORIS01/docker-zero-to-hero.git
-cd docker-zero-to-hero/projects/url-monitor
+cd docker-zero-to-hero/projects/10-url-monitor
 ```
 
 ### 2. Create your environment file
