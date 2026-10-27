@@ -439,7 +439,7 @@ docker compose up --build
 
 <div align='right' dir='rtl'>
 
-<span dir='rtl'>• [**درس ۱۰ — Celery + Redis با Docker**](../../../fa/10-celery-redis/README.md)</span>
+<span dir='rtl'>• [**درس ۱۰ — Celery + Redis با Docker**](/fa/10-celery-redis/README.md)</span>
 
 </div>
 

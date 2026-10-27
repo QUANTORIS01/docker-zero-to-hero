@@ -363,7 +363,7 @@ Before deploying to production:
 
 This project is the reference implementation for:
 
-- [**Lesson 10 — Celery + Redis with Docker**](../../../en/10-celery-redis/README.md)
+- [**Lesson 10 — Celery + Redis with Docker**](/en/10-celery-redis/README.md)
 
 See the lesson for a full step-by-step explanation of every file.
 
