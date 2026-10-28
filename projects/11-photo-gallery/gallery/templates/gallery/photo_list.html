@@ -1,0 +1,46 @@
+{% extends 'gallery/base.html' %}
+
+{% block title %}Gallery — Aurora Gallery{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-inner">
+        <p class="hero-eyebrow">Curated Photography</p>
+        <h1 class="hero-title">
+            A collection of<br>
+            <span class="gradient-text">beautiful moments</span>
+        </h1>
+        <p class="hero-subtitle">
+            {% if photos %}
+                {{ photos|length }} photo{{ photos|length|pluralize }} in the collection.
+            {% else %}
+                No photos yet. Add some from the admin panel.
+            {% endif %}
+        </p>
+    </div>
+</section>
+
+{% if photos %}
+    <section class="gallery-grid">
+        {% for photo in photos %}
+            <a href="{% url 'gallery:photo_detail' photo.pk %}" class="photo-card">
+                <div class="photo-card-image">
+                    <img src="{{ photo.image.url }}" alt="{{ photo.title }}" loading="lazy">
+                </div>
+                <div class="photo-card-overlay">
+                    <h2 class="photo-card-title">{{ photo.title }}</h2>
+                    {% if photo.photographer %}
+                        <p class="photo-card-meta">by {{ photo.photographer }}</p>
+                    {% endif %}
+                </div>
+            </a>
+        {% endfor %}
+    </section>
+{% else %}
+    <div class="empty-state">
+        <div class="empty-icon">◈</div>
+        <h2>The gallery is empty</h2>
+        <p>Go to the <a href="/admin/">admin panel</a> to add your first photo.</p>
+    </div>
+{% endif %}
+{% endblock %}

@@ -1349,14 +1349,14 @@ docker compose up --build
 **نکته‌ی کلیدی این درس:**
 
 ```text
-کاربر ← Django Web ← (جواب سریع)
+کاربر ──► Django Web ──► (جواب سریع)
                             │
                             │ "این کار رو در پس‌زمینه انجام بده"
                             ▼
                        Redis (صف)
                             │
                             ▼
-                    Celery Worker ← انجام کار
+                    Celery Worker ──► انجام کار
                             │
                             ▼
                     Celery Beat (زمان‌بند)

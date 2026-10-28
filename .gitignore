@@ -225,9 +225,10 @@ __marimo__/
 # Django
 *.sqlite3
 staticfiles/
+media/
 
 # Environment
-.env.*
+.env
 
 # OS
 .DS_Store

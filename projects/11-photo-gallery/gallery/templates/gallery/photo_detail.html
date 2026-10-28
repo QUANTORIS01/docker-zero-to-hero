@@ -1,0 +1,31 @@
+{% extends 'gallery/base.html' %}
+
+{% block title %}{{ photo.title }} — Aurora Gallery{% endblock %}
+
+{% block content %}
+<article class="detail">
+    <a href="{% url 'gallery:photo_list' %}" class="back-link">← Back to gallery</a>
+
+    <div class="detail-image">
+        <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+    </div>
+
+    <div class="detail-info">
+        <h1 class="detail-title">{{ photo.title }}</h1>
+
+        <div class="detail-meta">
+            {% if photo.photographer %}
+                <span class="meta-item"><strong>Photographer:</strong> {{ photo.photographer }}</span>
+            {% endif %}
+            {% if photo.location %}
+                <span class="meta-item"><strong>Location:</strong> {{ photo.location }}</span>
+            {% endif %}
+            <span class="meta-item"><strong>Added:</strong> {{ photo.created_at|date:"F j, Y" }}</span>
+        </div>
+
+        {% if photo.description %}
+            <p class="detail-description">{{ photo.description }}</p>
+        {% endif %}
+    </div>
+</article>
+{% endblock %}
