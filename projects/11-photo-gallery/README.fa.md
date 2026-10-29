@@ -501,7 +501,7 @@ net start winnat
 
 <div align='right' dir='rtl'>
 
-<span dir='rtl'>• [**درس ۱۱ — Nginx به‌عنوان Reverse Proxy**](../../fa/11-nginx/README.md)</span>
+<span dir='rtl'>• [**درس ۱۱ — Nginx به‌عنوان Reverse Proxy**](/fa/11-nginx/README.md)</span>
 
 </div>
 

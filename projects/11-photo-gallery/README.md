@@ -429,7 +429,7 @@ Before deploying to production:
 
 This project is the reference implementation for:
 
-- [**Lesson 11 — Nginx as a Reverse Proxy**](../../en/11-nginx/README.md)
+- [**Lesson 11 — Nginx as a Reverse Proxy**](/en/11-nginx/README.md)
 
 ---
 
