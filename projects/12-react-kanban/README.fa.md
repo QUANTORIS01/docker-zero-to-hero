@@ -372,7 +372,7 @@ docker compose logs frontend
 
 <div align='right' dir='rtl'>
 
-<span dir='rtl'>• [**درس ۱۲ — React با Docker**](../../fa/12-react/README.md)</span>
+<span dir='rtl'>• [**درس ۱۲ — React با Docker**](/fa/12-react/README.md)</span>
 
 </div>
 

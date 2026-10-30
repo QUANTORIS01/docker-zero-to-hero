@@ -309,7 +309,7 @@ If you see `VITE ready` with `Local: http://localhost:3000/`, the server is runn
 
 This project is the reference implementation for:
 
-- [**Lesson 12 — React with Docker**](../../en/12-react/README.md)
+- [**Lesson 12 — React with Docker**](/en/12-react/README.md)
 
 ---
 
