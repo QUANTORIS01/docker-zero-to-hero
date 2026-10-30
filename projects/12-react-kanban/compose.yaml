@@ -1,0 +1,19 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      # Mount the source code so edits on the host are visible in the container.
+      - .:/app
+      # Hide the host's node_modules from the container.
+      # The container uses its own (Linux) node_modules from the image.
+      - /app/node_modules
+    environment:
+      # Force Vite's file watcher to use polling.
+      # This is slower but reliable on Windows and WSL2.
+      # Remove this if hot reload works fine without it.
+      - CHOKIDAR_USEPOLLING=true
+    restart: unless-stopped

@@ -232,3 +232,9 @@ media/
 
 # OS
 .DS_Store
+
+# React
+node_modules/
+dist-ssr/
+*.local
+.vite/
