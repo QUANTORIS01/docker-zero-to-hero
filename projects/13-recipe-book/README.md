@@ -493,7 +493,7 @@ Before deploying to production:
 
 This project is the reference implementation for:
 
-- [**Lesson 13 — Fullstack + Multi-stage Build**](../../en/13-fullstack/README.md)
+- [**Lesson 13 — Fullstack + Multi-stage Build**](/projects/13-recipe-book/README.fa.md)
 
 ---
 

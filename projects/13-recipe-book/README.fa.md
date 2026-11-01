@@ -577,7 +577,7 @@ cd projects/13-recipe-book && docker compose up -d
 
 <div align='right' dir='rtl'>
 
-<span dir='rtl'>• [**درس ۱۳ — Fullstack + Multi-stage Build**](../../fa/13-fullstack/README.md)</span>
+<span dir='rtl'>• [**درس ۱۳ — Fullstack + Multi-stage Build**](/projects/13-recipe-book/README.md)</span>
 
 </div>
 
