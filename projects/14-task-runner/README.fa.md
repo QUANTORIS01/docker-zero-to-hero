@@ -631,7 +631,7 @@ frontend:
 
 <div align='right' dir='rtl'>
 
-<span dir='rtl'>• [**درس ۱۴ — Fullstack + Celery + Redis**](../../fa/14-task-runner/README.md)</span>
+<span dir='rtl'>• [**درس ۱۴ — Fullstack + Celery + Redis**](/fa/14-task-runner/README.md)</span>
 
 </div>
 

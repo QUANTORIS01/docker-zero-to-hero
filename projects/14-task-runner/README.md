@@ -550,7 +550,7 @@ Before deploying to production:
 
 This project is the reference implementation for:
 
-- [**Lesson 14 — Fullstack + Celery + Redis**](../../en/14-task-runner/README.md)
+- [**Lesson 14 — Fullstack + Celery + Redis**](/en/14-task-runner/README.md)
 
 ---
 
