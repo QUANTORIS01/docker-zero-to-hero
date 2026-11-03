@@ -460,15 +460,15 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 
 ```text
 ┌─────────────────────────────────────────────────────┐
-│                     کاربر                           │
-│              (مرورگر روی سیستم تو)                 │
+│                     کاربر                             │
+│              (مرورگر روی سیستم تو)                      │
 └──────────────────────┬──────────────────────────────┘
                        │
                        ▼
 ┌─────────────────────────────────────────────────────┐
 │             frontend (Nginx, port 8089)             │
 │                                                     │
-│  دفترچه:                                            │
+│  دفترچه:                                              │
 │  /            ──►  React static files               │
 │  /api/        ──►  backend:8000                     │
 │  /admin/      ──►  backend:8000                     │
@@ -485,7 +485,7 @@ COPY --from=builder /app/dist /usr/share/nginx/html
        ▼                                   ▼
 ┌──────────────┐                   ┌──────────────────┐
 │      db      │                   │      redis       │
-│  PostgreSQL  │                   │  (صف پیام)       │
+│  PostgreSQL  │                   │  (صف پیام)        │
 └──────────────┘                   └────────┬─────────┘
                                             │
                                             ▼
@@ -1916,7 +1916,7 @@ environment: &django_env
 React ──► Nginx ──► Django ──► PostgreSQL
                        │
                        └──► Redis ──► Celery Worker ──► PostgreSQL
-                                                 │
+                                             │
 React (polling هر ۲ ثانیه) ◄────────────────────┘
 ```
 
