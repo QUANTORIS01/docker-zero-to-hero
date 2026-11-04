@@ -1,0 +1,95 @@
+services:
+  # ─────────────────────────────────────────────────────────
+  # 1. PostgreSQL
+  # ─────────────────────────────────────────────────────────
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-chatflow}
+      POSTGRES_USER: ${POSTGRES_USER:-chatflow}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-chatflow_dev_password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-chatflow} -d ${POSTGRES_DB:-chatflow}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────────────────────
+  # 2. Redis — Channels layer for WebSocket broadcasts
+  # ─────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────────────────────
+  # 3. migrate — one-shot
+  # ─────────────────────────────────────────────────────────
+  migrate:
+    build:
+      context: ./backend-django
+    command: python manage.py migrate --noinput
+    environment: &django_env
+      DEBUG: ${DEBUG:-True}
+      SECRET_KEY: ${SECRET_KEY:-dev-only-insecure-change-me}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1,backend}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-http://localhost:8090}
+      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS:-http://localhost:8090}
+      POSTGRES_DB: ${POSTGRES_DB:-chatflow}
+      POSTGRES_USER: ${POSTGRES_USER:-chatflow}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-chatflow_dev_password}
+      POSTGRES_HOST: db
+      POSTGRES_PORT: "5432"
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # ─────────────────────────────────────────────────────────
+  # 4. backend — Django + Daphne (ASGI: HTTP + WebSocket)
+  # ─────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend-django
+    environment: *django_env
+    volumes:
+      - static_files:/app/staticfiles
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/')"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 20s
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────────────────────
+  # 5. frontend — React (multi-stage) + Nginx
+  # ─────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend-react
+    ports:
+      - "127.0.0.1:8090:80"
+    volumes:
+      - static_files:/app/staticfiles:ro
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  static_files:
