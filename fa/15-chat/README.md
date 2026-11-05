@@ -355,26 +355,26 @@ backend ──► redis (داخلی، برای Channel Layer)
 
 ```text
 ┌──────────────────────────────────────────────────┐
-│                    کاربر                          │
+│                    کاربر                           │
 └───────────────────────┬──────────────────────────┘
                         │
                         ▼
 ┌──────────────────────────────────────────────────┐
-│           frontend (Nginx، پورت 8090)            │
+│           frontend (Nginx، پورت 8090)             │
 │                                                  │
 │  /            ──►  React static files            │
 │  /api/        ──►  backend:8000 (HTTP)           │
 │  /admin/      ──►  backend:8000 (HTTP)           │
 │  /health/     ──►  backend:8000 (HTTP)           │
 │  /static/     ──►  static_files volume           │
-│  /ws/         ──►  backend:8000 (WebSocket) ⭐   │
+│  /ws/         ──►  backend:8000 (WebSocket) ⭐  │
 └───────────────────────┬──────────────────────────┘
                         │
                         ▼
 ┌──────────────────────────────────────────────────┐
-│         backend (Django + Daphne، پورت 8000)     │
+│         backend (Django + Daphne، پورت 8000)      │
 │                                                  │
-│  HTTP: Viewها     WebSocket: Consumerها          │
+│  HTTP: Viewها     WebSocket: Consumerها            │
 └─────┬─────────────────────────────────┬──────────┘
       │                                 │
       ▼                                 ▼
