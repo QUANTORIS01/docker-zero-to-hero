@@ -424,12 +424,12 @@ Container (در حال اجرا)
 
 ```text
 ┌──────────────────────────────────────────────────┐
-│                    کاربر                          │
+│                    کاربر                           │
 └───────────────────────┬──────────────────────────┘
                         │
                         ▼
 ┌──────────────────────────────────────────────────┐
-│           frontend (Nginx، پورت 8091)            │
+│           frontend (Nginx، پورت 8091)             │
 │                                                  │
 │  /            ──►  React static files            │
 │  /api/        ──►  backend:8000 (HTTP)           │
@@ -440,7 +440,7 @@ Container (در حال اجرا)
                         │
                         ▼
 ┌──────────────────────────────────────────────────┐
-│         backend (Django + Gunicorn، پورت 8000)   │
+│         backend (Django + Gunicorn، پورت 8000)    │
 └───────────────────────┬──────────────────────────┘
                         │
                         ▼
@@ -1613,15 +1613,11 @@ docker push mcsrayan/bookmarks-backend:1.0.1
 
 ### ۱۲.۴. تغییر `compose.prod.yaml`
 
-<div align='left' dir='ltr'>
-
 ```yaml
-# از 1.0.0 به 1.0.1
 backend:
+# از 1.0.0 به 1.0.1
   image: ${DOCKERHUB_USERNAME}/bookmarks-backend:1.0.1
 ```
-
-</div>
 
 ### ۱۲.۵. روی سرور production
 
